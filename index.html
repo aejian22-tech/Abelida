@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Teacher's Day!</title>
+  <!-- Google Fonts for Elegant Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- CSS File -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Background Decorative Elements -->
+  <div class="background-decorations">
+    <span class="decor star" style="top: 10%; left: 15%;">✨</span>
+    <span class="decor star" style="top: 25%; right: 12%;">⭐</span>
+    <span class="decor pencil" style="top: 70%; left: 8%;">✏️</span>
+    <span class="decor book" style="top: 80%; right: 10%;">📚</span>
+    <span class="decor heart" style="top: 40%; left: 5%;">❤️</span>
+    <span class="decor heart" style="top: 15%; right: 25%;">💖</span>
+  </div>
+
+  <!-- Main Card Container -->
+  <main class="card-container">
+    
+    <!-- Top Header Ribbon -->
+    <div class="ribbon">
+      <span>Happy Teacher's Day!</span>
+    </div>
+
+    <!-- Teacher Image Frame -->
+    <div class="image-wrapper">
+      <!-- Replace 'teacher.jpg' with your image file path or URL -->
+      <img src="photo.jpg" alt="Teacher" class="teacher-img">
+      <div class="sparkle-badge">🎓</div>
+    </div>
+
+    <!-- Message Section -->
+    <section class="message-section">
+      <h1 class="greeting">To My Inspiring Teacher Ma'am Marifel</h1>
+      <p class="message-body">
+        Thank you for being the light that guides us through our educational journey. 
+        Your patience, dedication, and kindness make the world a brighter place every single day. 
+        You don't just teach lessons from books—you inspire us to grow, dream, and reach for the stars.
+      </p>
+      <p class="signature">
+        With deepest gratitude,<br>
+        <span class="student-name">Your Student Abelida</span>
+      </p>
+    </section>
+
+    <!-- Audio Player Section -->
+    <div class="audio-controls">
+      <p class="audio-label">🎵 Background Music</p>
+      <!-- Modern browsers block autoplay without user interaction.
+           This audio tag has autoplay enabled, but includes controls so users can click play if blocked by browser policy. -->
+      <audio id="bg-music" autoplay loop controls>
+        <!-- Replace 'music.mp3' with your audio file path or URL -->
+        <source src="audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+  </main>
+
+  <!-- Script to handle Autoplay Restrictions in Modern Browsers -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('bg-music');
+      
+      // Attempt autoplay
+      let playPromise = audio.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          // Auto-play was prevented by browser policy, play on first click anywhere
+          document.body.addEventListener('click', () => {
+            audio.play();
+          }, { once: true });
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
